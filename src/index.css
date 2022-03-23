@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  /* background-color: gray; */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.correctAnswer {
+  color: #fef6e4;
+  background: #8bd3dd;
+  padding: 1rem;
+  }
+  .correctAnswer:after {
+  background: #8bd3dd;
+  color: #001858;
+  visibility: visible;
+  position: relative;
+  width: 100%;
+  height: 100%;
+content: "correct!";
+}
+.incorrectAnswer {
+background: #f582ae;
+color: #fef6e4;
+padding: 1rem;
+}
+.incorrectAnswer:after {
+background: #f582ae;
+color: #001858;
+visibility: visible;
+position: relative;
+width: 100%;
+height: 100%;
+content: "incorrect!";
+}

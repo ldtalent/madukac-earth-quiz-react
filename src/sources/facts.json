@@ -1,0 +1,56 @@
+[
+
+        {
+            "id": "1",
+            "title": "Earth Doesn’t Take 24 Hours to Rotate on its Axis",
+            "content": "It actually takes 23 hours, 56 minutes and 4 seconds for the Earth to rotate once completely on its axis, which astronomers refer to as a Sidereal Day. Now wait a second, doesn’t that mean that a day is 4 minutes shorter than we think it is? You’d think that this time would add up, day by day, and within a few months, day would be night, and night would be day."
+       },
+        {
+            "id": "2",
+            "title": "Earth is 4.5 Billion Years Old",
+            "content": "How do we know this?  In order to find out the age of the Earth, scientists look at rock and sediment and try to determine the age of that piece of sediment.  It's not as easy as one may think, however. The processes of plate tectonics mean that the Earth is constantly recycling its rock, breaking it down into magma in the interior before pumping it back up to the surface once more."
+        },
+        {
+            "id": "3",
+            "title": "How fast does the earth orbit the sun per hour?",
+            "content": " the earth is moving about our sun in a very nearly circular orbit. It covers this route at a speed of nearly 30 kilometers per second, or 67,000 miles per hour."
+        },
+        {
+            "id": "4",
+            "title": "70% of the Earth’s Surface is Covered in Water",
+            "content": "When astronauts first went into the space, they looked back at the Earth with human eyes for the first time. Based on their observations, the Earth acquired the nickname the “Blue Planet:. And it’s no surprise, seeing as how 70% of our planet is covered with oceans. The remaining 30% is the solid crust that is located above sea level, hence why it is called the “continental crust”"
+         },
+        {
+            "id": "5",
+            "title": "Highest Temperature",
+            "content": "The highest recorded temperature on Earth is 134 degrees Fahrenheit. It was recorded at Greenland Ranch in Death Valley, California, on July 10, 1913."
+        },
+        {
+            "id": "6",
+            "title": "A year on Earth isn’t 365 days",
+            "content": "It’s actually 365.2564 days. It’s this extra .2564 days that creates the need for a Leap Year once ever four years. That’s why we tack on an extra day in February every four years – 2004, 2008, 2012, etc. The exceptions to this rule is if the year in question is divisible by 100 (1900, 2100, etc), unless it divisible by 400 (1600, 2000, etc)"
+        },
+        {
+            "id": "7",
+            "title": "Lowest Temperature",
+            "content": "The lowest recorded temperature on Earth is minus 128.5 degrees Fahrenheit. It was recorded at Vostok, Antarctica, on July 21, 1983."
+        },
+        {
+            "id": "8",
+            "title": "Earth is Mostly Iron, Oxygen and Silicon",
+            "content": "If you could separate the Earth out into piles of material, you’d get 32.1 % iron, 30.1% oxygen, 15.1% silicon, and 13.9% magnesium. Of course, most of this iron is actually located at the core of the Earth. If you could actually get down and sample the core, it would be 88% iron. And if you sampled the Earth’s crust, you’d find that 47% of it is oxygen."
+        },
+        {
+            "id": "9",
+            "title": "The Earth’s Atmosphere Extends to a Distance of 10,000 km",
+            "content": "Earth’s atmosphere is thickest within the first 50 km from the surface or so, but it actually reaches out to about 10,000 km into space. It is made up of five main layers – the Troposphere, the Stratosphere, the Mesosphere, the Thermosphere, and the Exosphere."
+        },
+        {
+            "id": "10",
+            "title": "Earth is Almost a Sphere",
+            "content": "Many people tend to think that the Earth is a sphere. In fact, between the 6th cenury BCE and the modern era, this remained the scientific consensus. But thanks to modern astronomy and space travel, scientists have since come to understand that the Earth is actually shaped like a flattened sphere (aka. an oblate spheroid)"
+        }
+    
+    ]
+
+    
