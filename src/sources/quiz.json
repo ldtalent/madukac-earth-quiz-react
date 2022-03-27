@@ -58,7 +58,7 @@
         },
         {
             "id": "9",
-            "question":"",
+            "question":"How fast does the earth orbit the sun per hour?",
             "answers": ["nearly 30 kilometers per second", "nearly 30 meters per second", "nearly 30 kilometers per minute", "nearly 30 meters per minute"],
             "correctAnswer": "nearly 30 kilometers per second"
 
