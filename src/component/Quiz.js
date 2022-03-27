@@ -109,6 +109,7 @@ const Quiz = () => {
               {`Good Work! Your Final Score is
 ${score}/${Quest.length}`}
             </Typography>
+            <div style={{padding:20,}}>
             <Button
               variant="contained"
               color="error"
@@ -119,11 +120,13 @@ ${score}/${Quest.length}`}
             </Button>
             <Button 
             variant="contained"
+            color="error"
             className={classes.buttonPrev}
              onClick={() => navigate("/")}
 >
           Go Home
         </Button>
+        </div>
           </CardContent>
         </Card>
       );
@@ -209,10 +212,10 @@ ${score}/${Quest.length}`}
                  )}
               {currentQuestion === Quest.length - 1 && (
                 <Button
-                  variant="outlined"
-                  color="secondary"
+                  variant="contained"
+                  color="error"
                   display="block"
-                  className={classes.buttonPrev}
+                  className={classes.buttonNext}
                   onClick={() => finished()}
                 >
                   FINISH
