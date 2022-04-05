@@ -2,12 +2,9 @@ import React from "react";
 import ResponsiveAppBar from "./ResponsiveAppBar";
 import {
   BrowserRouter as Router,
-  Routes,
-  Route,
   useNavigate,
 } from "react-router-dom";
-import { useState } from 'react';
-import Home from "./Home";
+import { useState } from "react";
 import Quest from "../sources/quiz.json";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -20,7 +17,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -45,7 +42,6 @@ const Quiz = () => {
     }
   };
   const reset = () => {
-    // setShow(false);
     setClickedAnswer(false);
   };
 
@@ -59,34 +55,25 @@ const Quiz = () => {
   let navigate = useNavigate();
 
   const useStyles = makeStyles({
-    root: {
-      fontSize:30,
-      fontFamily: 'Source Sans Pro',
-      fontWeight:'bold',
-      color: 'black',
-      textAlign:'center',
-    },
-    quizCard:{
-      margin:'auto',
+    quizCard: {
+      margin: "auto",
       padding: 10,
-     marginTop:15,
-     color:'grey',
-      textAlign:'center',
+      marginTop: 15,
+      color: "grey",
+      textAlign: "center",
     },
-    buttonPrev:{
-      float:'left',
-      backgroundColor:'#fc4c4e',
+    buttonPrev: {
+      float: "left",
+      backgroundColor: "#fc4c4e",
     },
-    buttonNext:{
-      float:'right',
-      
+    buttonNext: {
+      float: "right",
     },
-    totalAnswered:{
-      color:'red',
-      textAlign:'center',
-      paddingBottom:10,
+    totalAnswered: {
+      color: "red",
+      textAlign: "center",
+      paddingBottom: 10,
     },
-    
   });
 
   const classes = useStyles();
@@ -96,37 +83,39 @@ const Quiz = () => {
       <Box
         component="span"
         sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-      >
-        
-      </Box>
+      ></Box>
     );
 
     {
       return (
-        <Card sx={{ height: 335 }} key={Quest[currentQuestion].id} className={classes.quizCard}>
+        <Card
+          sx={{ height: 335 }}
+          key={Quest[currentQuestion].id}
+          className={classes.quizCard}
+        >
           <CardContent>
             <Typography variant="h5" component="div">
               {`Good Work! Your Final Score is
-${score}/${Quest.length}`}
+                 ${score}/${Quest.length}`}
             </Typography>
-            <div style={{padding:20,}}>
-            <Button
-              variant="contained"
-              color="error"
-              className={classes.buttonNext}
-              onClick={() => startOver()}
-            >
-              Start over
-            </Button>
-            <Button 
-            variant="contained"
-            color="error"
-            className={classes.buttonPrev}
-             onClick={() => navigate("/")}
->
-          Go Home
-        </Button>
-        </div>
+            <div style={{ padding: 20 }}>
+              <Button
+                variant="contained"
+                color="error"
+                className={classes.buttonNext}
+                onClick={() => startOver()}
+              >
+                Start over
+              </Button>
+              <Button
+                variant="contained"
+                color="error"
+                className={classes.buttonPrev}
+                onClick={() => navigate("/")}
+              >
+                Go Home
+              </Button>
+            </div>
           </CardContent>
         </Card>
       );
@@ -135,15 +124,8 @@ ${score}/${Quest.length}`}
     return (
       <Grid container justifyContent="center">
         <ResponsiveAppBar />
-        
-        {/* {Quest && Quest.map(data=>{ */}
-
         <div>
-        {/* <p className={classes.root}> Quiz Section</p> */}
-      
-          <Card
-          className={classes.quizCard}
-          >
+          <Card className={classes.quizCard}>
             <CardContent>
               <Typography
                 variant="body1"
@@ -152,16 +134,19 @@ ${score}/${Quest.length}`}
                 textAlign="center"
               >
                 <span className={classes.totalAnswered}>
-                {`${currentQuestion}/${Quest.length}`}
-                  </span>
+                  {`${currentQuestion}/${Quest.length}`}
+                </span>
                 <br />
-                
                 {Quest[currentQuestion].question}
               </Typography>
             </CardContent>
             <Box>
               {Quest[currentQuestion].answers.map((answer) => (
-                <FormControl sx={{ m: 3 }} variant="standard" className={classes.ansOptions}>
+                <FormControl
+                  sx={{ m: 3 }}
+                  variant="standard"
+                  className={classes.ansOptions}
+                >
                   <FormLabel
                     id="demo-radio-buttons-group-label"
                     key={answer.id}
@@ -182,21 +167,20 @@ ${score}/${Quest.length}`}
                 </FormControl>
               ))}
               <div>
-              {currentQuestion >= Quest.length -9 && (
-                    <Button
-                      variant="contained"
-                      color="error"
-                      className={classes.buttonPrev}
-                      onClick={() => {
-                        setCurrentQuestion(currentQuestion - 1);
-                        checkCorrectAnswer();}}
-                    >
-                      Previous
-                    </Button>
-                    
-                  )}
-              {currentQuestion < Quest.length - 1 && (
-                
+                {currentQuestion >= Quest.length - 9 && (
+                  <Button
+                    variant="contained"
+                    color="error"
+                    className={classes.buttonPrev}
+                    onClick={() => {
+                      setCurrentQuestion(currentQuestion - 1);
+                      checkCorrectAnswer();
+                    }}
+                  >
+                    Previous
+                  </Button>
+                )}
+                {currentQuestion < Quest.length - 1 && (
                   <Button
                     variant="contained"
                     color="error"
@@ -205,27 +189,24 @@ ${score}/${Quest.length}`}
                     onClick={() => {
                       setCurrentQuestion(currentQuestion + 1);
                       checkCorrectAnswer();
-                      reset();}}
+                      reset();
+                    }}
                   >
                     Next
                   </Button>
-                 )}
-              {currentQuestion === Quest.length - 1 && (
-                <Button
-                  variant="contained"
-                  color="error"
-                  display="block"
-                  className={classes.buttonNext}
-                  onClick={() => finished()}
-                >
-                  FINISH
-                </Button>
-              )}
-                  
-                </div>
-              
-
-              
+                )}
+                {currentQuestion === Quest.length - 1 && (
+                  <Button
+                    variant="contained"
+                    color="error"
+                    display="block"
+                    className={classes.buttonNext}
+                    onClick={() => finished()}
+                  >
+                    FINISH
+                  </Button>
+                )}
+              </div>
             </Box>
           </Card>
         </div>
