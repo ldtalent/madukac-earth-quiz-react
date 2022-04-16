@@ -7,21 +7,16 @@ To create a new app, you may choose one of these three methods:
 ```
 npx create-react-app earthQuizApp
 ```
-
-(npx is a package runner tool that comes with npm 5.2+ and higher)
-
 2. npm
 ```
 npm init react-app earthQuizApp
 ```
-
 3. Yarn
 ```
 yarn create react-app earthQuizApp
 ```
 
-It will create a directory called my-app inside the current folder.
-Inside that directory, it will generate the initial project structure and install the transitive dependencies:
+It will create a directory called earthQuizApp. It will generate the initial project structure and install the transitive dependencies:
 ```
 earthQuizApp
 ├── README.md
