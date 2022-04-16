@@ -1,1 +1,50 @@
-# madukac-earth-quiz-react
+# Creating the app
+You’ll need to have Node 14.0.0 or later version installed on your local development machine. You can use nvm (macOS/Linux) or nvm-windows to switch Node versions between different projects.
+
+To create a new app, you may choose one of these three methods:
+
+1. npx
+```
+npx create-react-app earthQuizApp
+```
+
+(npx is a package runner tool that comes with npm 5.2+ and higher)
+
+2. npm
+```
+npm init react-app earthQuizApp
+```
+
+3. Yarn
+```
+yarn create react-app earthQuizApp
+```
+
+It will create a directory called my-app inside the current folder.
+Inside that directory, it will generate the initial project structure and install the transitive dependencies:
+```
+earthQuizApp
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+```
+Once the installation is done, you can open your project folder:
+
+cd earthQuizApp
+Inside the newly created project, you can run some built-in commands:
+
+npm start or yarn start
+Runs the app in development mode.
+Open http://localhost:3000 to view it in the browser.
