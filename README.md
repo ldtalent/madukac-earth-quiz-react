@@ -1,5 +1,6 @@
 # Creating the app
-You’ll need to have Node 14.0.0 or later version installed on your local development machine. You can use nvm (macOS/Linux) or nvm-windows to switch Node versions between different projects.
+
+The first step will be to install Node on your local server (assuming you do not have it installed already). To install Node follow the steps in this article
 
 To create a new app, you may choose one of these three methods:
 
@@ -37,9 +38,9 @@ earthQuizApp
 ```
 Once the installation is done, you can open your project folder:
 
+```
 cd earthQuizApp
-Inside the newly created project, you can run some built-in commands:
-
+```
 npm start or yarn start
 Runs the app in development mode.
 Open http://localhost:3000 to view it in the browser.
