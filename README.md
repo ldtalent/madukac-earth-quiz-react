@@ -1,6 +1,6 @@
 # Creating the app
 
-The first step will be to install Node on your local server (assuming you do not have it installed already). To install Node follow the steps in this article
+The first step will be to install Node on your local server (assuming you do not have it installed already)
 
 To create a new app, you may choose one of these three methods:
 
