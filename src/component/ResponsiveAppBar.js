@@ -1,141 +1,169 @@
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import AppBar from "@mui/material/AppBar";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from "@mui/material/MenuItem";
+import {AppBar, Toolbar, Typography, makeStyles, Button, IconButton, Drawer, Link,
+MenuItem,} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import React, { useState, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-const pages = ["Learn", "Quiz"];
+const linkDetails = [
+  {
+    displayName: "Quiz",
+    href: "/Quiz",
+  },
+  {
+    displayName: "Learn",
+    href: "/Learn",
+  },
+];
 
-const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const useStyles = makeStyles({
-    navbar: {
-      backgroundColor: "#6305dc",
-      justifyContent: "space-between",
-      marginBottom: 80,
+const useStyles = makeStyles(() => ({
+  NavBar: {
+    backgroundColor: "#400CCC",
+    paddingRight: "79px",
+    paddingLeft: "5px",
+    marginBottom:"100px",
+    "@media (max-width: 900px)": {
+      paddingLeft: 0,
+      
     },
-    homeColor: {
-      fontFamily: "Dancing Script",
-    },
+  },
+  logoText: {
+    fontFamily: "Dancing Script, cursive",
+    fontWeight: 500,
+    color: "#FFFEFE",
+    textAlign: "left",
+  },
+  menuButton: {
+    fontFamily: "Open Sans, sans-serif",
+    fontWeight: 700,
+    size: "18px",
+    marginLeft: "38px",
+  },
+  toolbar: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  drawerContainer: {
+    padding: "20px 30px",
+  },
+}));
+
+export default function ResponsiveAppBar() {
+  const { NavBar, logoText, menuButton, toolbar, drawerContainer } = useStyles();
+
+  const [state, setState] = useState({
+    mobileView: false,
+    drawerOpen: false,
   });
 
-  return (
-    <AppBar
-      position="sticky"
-      style={{ backgroundColor: "#6305dc", justifyContent: "space-between" }}
-    >
-      <Toolbar
-        style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
-      >
-        <Typography
-          variant="h6"
-          noWrap
-          component="div"
-          style={{
-            fontFamily: "Dancing Script",
-          }}
-          sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-        >
-          <Link href="/" underline="none" style={{ color: "white" }}>
-            EarthWonders
-          </Link>
-        </Typography>
+  const { mobileView, drawerOpen } = state;
 
-        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenNavMenu}
-            color="inherit"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElNav}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "left",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "left",
-            }}
-            open={Boolean(anchorElNav)}
-            onClose={handleCloseNavMenu}
-            sx={{
-              display: { xs: "block", md: "none" },
-            }}
-          >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Link href={page} underline="none" textAlign="center">
-                  {page}
-                </Link>
-              </MenuItem>
-            ))}
-          </Menu>
-        </Box>
-        <Typography
-          variant="h6"
-          style={{
-            fontFamily: "Dancing Script",
-            paddingRight: 200,
-          }}
-          sx={{ flexGrow: 3, display: { xs: "flex", md: "none" } }}
-        >
-          <Link href="/" underline="none" style={{ color: "white" }}>
-            EarthWonders
-          </Link>
-        </Typography>
+  useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState((prevState) => ({ ...prevState, mobileView: true }))
+        : setState((prevState) => ({ ...prevState, mobileView: false }));
+    };
 
-        {pages.map((page) => (
-          <Button
-            key={page}
-            onClick={handleCloseNavMenu}
-            sx={{
-              color: "white",
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-            }}
-          >
-            <Grid justifyContent="flex-end">
-              <Button>
-                <Link href={page} underline="none" style={{ color: "white" }}>
-                  {page}
-                </Link>
-              </Button>
-            </Grid>
-          </Button>
-        ))}
+    setResponsiveness();
+
+    window.addEventListener("resize", () => setResponsiveness());
+
+    return () => {
+      window.removeEventListener("resize", () => setResponsiveness());
+    };
+  }, []);
+
+  const desktopView = () => {
+    return (
+      <Toolbar className={toolbar}>
+        {EarthWonders}
+        <div>{getMenuButtons()}</div>
       </Toolbar>
-    </AppBar>
+    );
+  };
+
+  const viewMobile = () => {
+    const handleDrawerOpen = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: true }));
+    const handleDrawerClose = () =>
+      setState((prevState) => ({ ...prevState, drawerOpen: false }));
+
+    return (
+      <Toolbar>
+        <IconButton
+          {...{
+            edge: "start",
+            color: "inherit",
+            "aria-label": "menu",
+            "aria-haspopup": "true",
+            onClick: handleDrawerOpen,
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+
+        <Drawer
+          {...{
+            anchor: "left",
+            open: drawerOpen,
+            onClose: handleDrawerClose,
+          }}
+        >
+          <div className={drawerContainer}>{getDrawerChoices()}</div>
+        </Drawer>
+
+        <div>{EarthWonders}</div>
+      </Toolbar>
+    );
+  };
+
+  const getDrawerChoices = () => {
+    return linkDetails.map(({ displayName, href }) => {
+      return (
+        <Link
+          {...{
+            component: RouterLink,
+            to: href,
+            color: "inherit",
+            style: { textDecoration: "none" },
+            key: displayName,
+          }}
+        >
+          <MenuItem>{displayName}</MenuItem>
+        </Link>
+      );
+    });
+  };
+
+  const EarthWonders = (
+    <Typography variant="h6" component="h1" className={logoText}>
+      EarthWonders
+    </Typography>
   );
-};
-export default ResponsiveAppBar;
+
+  const getMenuButtons = () => {
+    return linkDetails.map(({ displayName, href }) => {
+      return (
+        <Button
+          {...{
+            key: displayName,
+            color: "inherit",
+            to: href,
+            component: RouterLink,
+            className: menuButton,
+          }}
+        >
+          {displayName}
+        </Button>
+      );
+    });
+  };
+
+  return (
+    <NavBar>
+      <AppBar className={NavBar}>
+        {mobileView ? viewMobile() : desktopView()}
+      </AppBar>
+    </NavBar>
+  );
+}
