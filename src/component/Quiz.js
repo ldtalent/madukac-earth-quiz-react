@@ -130,7 +130,7 @@ const Quiz = () => {
           <Card className={classes.quizCard} >
             <CardContent>
               <Typography
-               key={Quest[currentQuestion].id}
+              key={Quest[currentQuestion].id}
                 variant="body1"
                 gutterBottom
                 component="div"
@@ -141,6 +141,7 @@ const Quiz = () => {
                 </span>
                 <br />
                 {Quest[currentQuestion].question}
+                
               </Typography>
             </CardContent>
             <Box>

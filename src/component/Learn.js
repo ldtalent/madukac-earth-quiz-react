@@ -32,9 +32,9 @@ const Learn = () => {
                 style={{ margin: "auto" }}
               >
                 <Grid item xs={8} >
-                  <Item>
+                  <Item key={fact.id}>
                     <Typography
-                    key={fact.id}
+              
                       variant="h5"
                       gutterBottom
                       component="div"
