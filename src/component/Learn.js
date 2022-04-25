@@ -22,7 +22,8 @@ const Learn = () => {
       {Facts &&
         Facts.map((fact) => {
           return (
-            <Box sx={{ flexGrow: 1 }} key={fact.id}>
+            <Box sx={{ flexGrow: 1 }}  style={{
+              marginTop:50}}>
               <Grid
                 container
                 spacing={2}
@@ -30,9 +31,10 @@ const Learn = () => {
                 justifyContent="center"
                 style={{ margin: "auto" }}
               >
-                <Grid item xs={8}>
+                <Grid item xs={8} >
                   <Item>
                     <Typography
+                    key={fact.id}
                       variant="h5"
                       gutterBottom
                       component="div"

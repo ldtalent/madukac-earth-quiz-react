@@ -90,11 +90,12 @@ const Quiz = () => {
       return (
         <Card
           sx={{ height: 335 }}
-          key={Quest[currentQuestion].id}
+          
           className={classes.quizCard}
         >
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography variant="h5" component="div" style={{
+              marginTop:50}}>
               {`Good Work! Your Final Score is
                  ${score}/${Quest.length}`}
             </Typography>
@@ -122,12 +123,14 @@ const Quiz = () => {
     }
   } else
     return (
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="center" style={{
+        marginTop:50}} >
         <ResponsiveAppBar />
         <div>
-          <Card className={classes.quizCard}>
+          <Card className={classes.quizCard} >
             <CardContent>
               <Typography
+               key={Quest[currentQuestion].id}
                 variant="body1"
                 gutterBottom
                 component="div"
@@ -149,7 +152,7 @@ const Quiz = () => {
                 >
                   <FormLabel
                     id="demo-radio-buttons-group-label"
-                    key={answer.id}
+                    
                   ></FormLabel>
                   <RadioGroup
                     aria-labelledby="demo-error-radios"
