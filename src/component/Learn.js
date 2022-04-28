@@ -19,12 +19,10 @@ const Learn = () => {
   return (
     <div>
       <ResponsiveAppBar />
-      {Facts &&
-        Facts.map((fact) => {
-          return (
-            <Box sx={{ flexGrow: 1 }}  style={{
-              marginTop:50}}>
-              <Grid
+      {Facts.map((fact, i) => (
+            <Box key={i} sx={{ flexGrow: 1 }}  style={{
+              marginTop:50}} >
+              <Grid 
                 container
                 spacing={2}
                 elevation={9}
@@ -32,9 +30,8 @@ const Learn = () => {
                 style={{ margin: "auto" }}
               >
                 <Grid item xs={8} >
-                  <Item key={fact.id}>
+                  <Item>
                     <Typography
-              
                       variant="h5"
                       gutterBottom
                       component="div"
@@ -44,6 +41,7 @@ const Learn = () => {
                     </Typography>
 
                     <Typography variant="body1" gutterBottom>
+                      
                       {fact.content}
                     </Typography>
                   </Item>
@@ -52,12 +50,11 @@ const Learn = () => {
               <br />
               <br />
             </Box>
-          );
-        })}
+       ))}
       {Data &&
-        Data.map((credit) => {
+        Data.map((credit, i) => {
           return (
-            <div>
+            <div key={i}>
               <Grid container justifyContent="flex-end">
                 <Item>
                   <Typography variant="h5" gutterBottom component="div">

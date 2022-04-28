@@ -1,9 +1,6 @@
 import React from "react";
 import ResponsiveAppBar from "./ResponsiveAppBar";
-import {BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
-import { useState } from 'react';
-import Quiz from "./Quiz"
-import Learn from "./Learn"
+import {useNavigate} from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
@@ -12,11 +9,6 @@ import img from "./../assets/images/earth.jpg";
 
 const Home = (props) => {
   let navigate = useNavigate();
-  const [compIsShown, setCompIsShown] = useState(false);
-  function handleClick() {
-    setCompIsShown(true)
-    navigate("/Learn");
-  }
   return (
     <div>
       <ResponsiveAppBar />

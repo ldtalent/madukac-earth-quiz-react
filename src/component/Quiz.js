@@ -1,9 +1,6 @@
 import React from "react";
 import ResponsiveAppBar from "./ResponsiveAppBar";
-import {
-  BrowserRouter as Router,
-  useNavigate,
-} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import { useState } from "react";
 import Quest from "../sources/quiz.json";
 import Typography from "@mui/material/Typography";
@@ -37,12 +34,13 @@ const Quiz = () => {
     }
   };
   const finished = () => {
-    if (currentQuestion == Quest.length - 1) {
+    if (currentQuestion === Quest.length - 1) {
       setEnd(true);
     }
   };
   const reset = () => {
     setClickedAnswer(false);
+
   };
 
   const startOver = () => {
@@ -79,18 +77,9 @@ const Quiz = () => {
   const classes = useStyles();
 
   if (end) {
-    const bull = (
-      <Box
-        component="span"
-        sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-      ></Box>
-    );
-
-    {
       return (
         <Card
-          sx={{ height: 335 }}
-          
+          sx={{ height: 335 }}        
           className={classes.quizCard}
         >
           <CardContent>
@@ -120,7 +109,7 @@ const Quiz = () => {
           </CardContent>
         </Card>
       );
-    }
+    
   } else
     return (
       <Grid container justifyContent="center" style={{
@@ -130,13 +119,13 @@ const Quiz = () => {
           <Card className={classes.quizCard} >
             <CardContent>
               <Typography
-              key={Quest[currentQuestion].id}
                 variant="body1"
                 gutterBottom
                 component="div"
                 textAlign="center"
               >
                 <span className={classes.totalAnswered}>
+                  
                   {`${currentQuestion}/${Quest.length}`}
                 </span>
                 <br />
@@ -145,11 +134,12 @@ const Quiz = () => {
               </Typography>
             </CardContent>
             <Box>
-              {Quest[currentQuestion].answers.map((answer) => (
+              {Quest[currentQuestion].answers.map((answer, i) => (
                 <FormControl
                   sx={{ m: 3 }}
                   variant="standard"
                   className={classes.ansOptions}
+                  key={i}
                 >
                   <FormLabel
                     id="demo-radio-buttons-group-label"
@@ -170,6 +160,8 @@ const Quiz = () => {
                   </RadioGroup>
                 </FormControl>
               ))}
+              {clickedAnswer && (
+
               <div>
                 {currentQuestion >= Quest.length - 9 && (
                   <Button
@@ -211,6 +203,7 @@ const Quiz = () => {
                   </Button>
                 )}
               </div>
+              )}
             </Box>
           </Card>
         </div>
